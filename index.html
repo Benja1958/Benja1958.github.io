@@ -127,6 +127,9 @@ section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
 .job li::marker { color: var(--ochre); }
 .badge { display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.55rem; border-radius: 999px; background: var(--ochre); color: #fff; font-size: 0.75rem; font-weight: 600; vertical-align: 2px; }
 
+.li-link { display: inline-block; margin-top: 0.9rem; font-size: 0.92rem; font-weight: 600; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.li-link:hover { color: var(--ochre); }
+
 /* Projects: alternating feature rows, each with a visual */
 .projects { display: grid; gap: 1.75rem; }
 .project { display: grid; grid-template-columns: 1fr; overflow: hidden; }
@@ -189,7 +192,8 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
       <div class="photo">
         <!-- PROFILE PHOTO: replace the initials below with your photo, e.g.
              <img src="your-photo.jpg" alt="Benjamin Mukeku"> -->
-        <span class="initials" aria-hidden="true">BM</span>
+        <img src="DSC00934.JPG" alt="Benjamin Mukeku" onerror="this.remove(); document.querySelector('.photo .initials').hidden=false;">
+        <span class="initials" aria-hidden="true" hidden>BM</span>
       </div>
       <div class="hero-text">
       <p class="hello">Hi, I'm</p>
@@ -303,6 +307,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
               <li>Architected the backend with Python, FastAPI, PostgreSQL and SQLAlchemy, and built the frontend in Next.js, React and TypeScript.</li>
               <li>Deployed APIs on Render and the frontend on Vercel, supporting listings, location-based search and in-app messaging.</li>
             </ul>
+            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
@@ -315,6 +320,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
               <li>Integrated NotchPay payment APIs end to end so users could top up XAF wallets seamlessly.</li>
               <li>Fixed transaction-ID mapping errors by enforcing unique identifiers, keeping wallet balances accurate.</li>
             </ul>
+            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
@@ -328,6 +334,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
               <li>Shipped with zero on-call incidents thanks to automated validation, testing and ODS monitoring before rollout.</li>
               <li>Worked with Ads infrastructure and ranking engineers to integrate the pipeline end to end, contributing a 0.4% lift toward the team's revenue target.</li>
             </ul>
+            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
@@ -340,6 +347,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
               <li>Designed coding labs on data structures, algorithmic thinking and writing clean, maintainable code.</li>
               <li>Guided students through full projects, from scoping requirements to debugging, testing and final presentations.</li>
             </ul>
+            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
       </ol>
