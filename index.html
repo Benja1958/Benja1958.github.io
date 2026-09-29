@@ -127,8 +127,8 @@ section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
 .job li::marker { color: var(--ochre); }
 .badge { display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.55rem; border-radius: 999px; background: var(--ochre); color: #fff; font-size: 0.75rem; font-weight: 600; vertical-align: 2px; }
 
-.li-link { display: inline-block; margin-top: 0.9rem; font-size: 0.92rem; font-weight: 600; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
-.li-link:hover { color: var(--ochre); }
+.job-link { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--forest) 45%, transparent); }
+.job-link:hover { text-decoration-color: var(--ochre); color: var(--ink); }
 
 /* Projects: alternating feature rows, each with a visual */
 .projects { display: grid; gap: 1.75rem; }
@@ -300,33 +300,31 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
         <li class="job now">
           <p class="when">April 2026 to present <span class="badge">Current</span></p>
           <div class="card">
-            <h3>Full-Stack Engineer, Co-founder</h3>
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Full-Stack Engineer, Co-founder</a></h3>
             <p class="org">NyumbaLink</p>
             <ul>
               <li>Co-founded and built a rental marketplace connecting tenants and landlords as part of a three-person founding team.</li>
               <li>Architected the backend with Python, FastAPI, PostgreSQL and SQLAlchemy, and built the frontend in Next.js, React and TypeScript.</li>
               <li>Deployed APIs on Render and the frontend on Vercel, supporting listings, location-based search and in-app messaging.</li>
             </ul>
-            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
           <p class="when">October 2025 to April 2026</p>
           <div class="card">
-            <h3>Backend Software Engineer</h3>
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Backend Software Engineer</a></h3>
             <p class="org">Paysilo</p>
             <ul>
               <li>Secured mobile-money transactions with HMAC-SHA256 webhook verification and idempotent finalization, preventing duplicate credits.</li>
               <li>Integrated NotchPay payment APIs end to end so users could top up XAF wallets seamlessly.</li>
               <li>Fixed transaction-ID mapping errors by enforcing unique identifiers, keeping wallet balances accurate.</li>
             </ul>
-            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
           <p class="when">May 2025 to August 2025</p>
           <div class="card">
-            <h3>Software Engineering Intern</h3>
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Software Engineering Intern</a></h3>
             <p class="org">Meta</p>
             <ul>
               <li>Architected a distributed backend pipeline in Hack/PHP onboarding Meta In-App Browser signals, scaling to 200M+ events a day for downstream ranking.</li>
@@ -334,20 +332,18 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
               <li>Shipped with zero on-call incidents thanks to automated validation, testing and ODS monitoring before rollout.</li>
               <li>Worked with Ads infrastructure and ranking engineers to integrate the pipeline end to end, contributing a 0.4% lift toward the team's revenue target.</li>
             </ul>
-            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
         <li class="job">
           <p class="when">May 2024 to February 2026</p>
           <div class="card">
-            <h3>Technical Mentor</h3>
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Technical Mentor</a></h3>
             <p class="org">Zindua Tech Initiative</p>
             <ul>
               <li>Mentored 55+ students in Python and data structures across beginner and intermediate cohorts.</li>
               <li>Designed coding labs on data structures, algorithmic thinking and writing clean, maintainable code.</li>
               <li>Guided students through full projects, from scoping requirements to debugging, testing and final presentations.</li>
             </ul>
-            <a class="li-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
           </div>
         </li>
       </ol>
