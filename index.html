@@ -126,6 +126,7 @@ section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
 .job ul { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); }
 .job li { margin-bottom: 0.35rem; }
 .job li::marker { color: var(--ochre); }
+.job .summary { margin: 0; color: var(--ink-soft); max-width: 44rem; }
 .badge { display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.55rem; border-radius: 999px; background: var(--ochre); color: #fff; font-size: 0.75rem; font-weight: 600; vertical-align: 2px; }
 
 .job-link { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--forest) 45%, transparent); }
@@ -141,6 +142,7 @@ section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
 .project .art { position: relative; background: var(--forest); min-height: 260px; overflow: hidden; }
 .project .art > svg, .project .art > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
 .stat { position: absolute; left: 1.1rem; bottom: 1.1rem; background: var(--card); color: var(--ink); border-radius: 14px; padding: 0.55rem 0.9rem; box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+.stat.stat-right { left: auto; right: 1.1rem; }
 .stat b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.7rem; line-height: 1; letter-spacing: -0.03em; color: var(--forest); }
 .stat span { font-size: 0.8rem; color: var(--ink-soft); }
 .project .body { padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; justify-content: center; }
@@ -149,6 +151,9 @@ section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
 .project p { margin: 0 0 1.1rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0; }
 .tags li { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; background: var(--paper-2); color: var(--forest); }
+
+.proj-link { margin-top: 1.1rem; align-self: flex-start; font-weight: 600; color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--forest) 45%, transparent); }
+.proj-link:hover { color: var(--ink); text-decoration-color: var(--ochre); }
 
 /* Communities: pill badges */
 .orgs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.85rem; }
@@ -303,11 +308,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
           <div class="card">
             <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Full-Stack Engineer, Co-founder</a></h3>
             <p class="org">NyumbaLink</p>
-            <ul>
-              <li>Co-founded and built a rental marketplace connecting tenants and landlords as part of a three-person founding team.</li>
-              <li>Architected the backend with Python, FastAPI, PostgreSQL and SQLAlchemy, and built the frontend in Next.js, React and TypeScript.</li>
-              <li>Deployed APIs on Render and the frontend on Vercel, supporting listings, location-based search and in-app messaging.</li>
-            </ul>
+            <p class="summary">Co-founded a rental marketplace connecting tenants and landlords as one of three founding engineers. I built the Python, FastAPI and PostgreSQL backend and the Next.js and TypeScript frontend, shipping listings, location-based search and in-app messaging on Render and Vercel.</p>
           </div>
         </li>
         <li class="job">
@@ -315,11 +316,15 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
           <div class="card">
             <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Backend Software Engineer</a></h3>
             <p class="org">Paysilo</p>
-            <ul>
-              <li>Secured mobile-money transactions with HMAC-SHA256 webhook verification and idempotent finalization, preventing duplicate credits.</li>
-              <li>Integrated NotchPay payment APIs end to end so users could top up XAF wallets seamlessly.</li>
-              <li>Fixed transaction-ID mapping errors by enforcing unique identifiers, keeping wallet balances accurate.</li>
-            </ul>
+            <p class="summary">Built secure mobile-money payment flows, integrating NotchPay end to end for XAF wallet top-ups. HMAC-SHA256 webhook verification and idempotent finalization prevented duplicate credits, and enforcing unique transaction IDs kept every wallet balance accurate.</p>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">June 2025 to August 2025</p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Amazon Campus Prep Series</a></h3>
+            <p class="org">Amazon</p>
+            <p class="summary">Took part in Amazon's technical prep program, sharpening data structures and algorithms through mock technical and behavioral interviews, learning directly from Amazon engineers in Q&amp;A sessions, and shadowing roles to see how teams build at scale.</p>
           </div>
         </li>
         <li class="job">
@@ -327,12 +332,7 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
           <div class="card">
             <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Software Engineering Intern</a></h3>
             <p class="org">Meta</p>
-            <ul>
-              <li>Architected a distributed backend pipeline in Hack/PHP onboarding Meta In-App Browser signals, scaling to 200M+ events a day for downstream ranking.</li>
-              <li>Improved pipeline throughput by 25% by optimizing metadata enrichment, indexing and batching.</li>
-              <li>Shipped with zero on-call incidents thanks to automated validation, testing and ODS monitoring before rollout.</li>
-              <li>Worked with Ads infrastructure and ranking engineers to integrate the pipeline end to end, contributing a 0.4% lift toward the team's revenue target.</li>
-            </ul>
+            <p class="summary">Architected a distributed Hack/PHP pipeline bringing In-App Browser signals into Ads ranking at 200M+ events a day. I improved throughput by 25%, shipped with zero on-call incidents through automated validation and monitoring, and contributed a 0.4% lift to the team's revenue target.</p>
           </div>
         </li>
         <li class="job">
@@ -340,11 +340,15 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
           <div class="card">
             <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Technical Mentor</a></h3>
             <p class="org">Zindua Tech Initiative</p>
-            <ul>
-              <li>Mentored 55+ students in Python and data structures across beginner and intermediate cohorts.</li>
-              <li>Designed coding labs on data structures, algorithmic thinking and writing clean, maintainable code.</li>
-              <li>Guided students through full projects, from scoping requirements to debugging, testing and final presentations.</li>
-            </ul>
+            <p class="summary">Mentored 55+ students in Python and data structures across beginner and intermediate cohorts, designing hands-on coding labs and guiding each student through full projects, from scoping requirements to debugging, testing and final presentations.</p>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">May 2023 to May 2026</p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">IT Client Services Assistant</a></h3>
+            <p class="org">Cornell University</p>
+            <p class="summary">Kept Cornell staff and students up and running for three years by configuring and deploying new computers, running the loaner laptop program from inventory to returns, backing up the help desk on troubleshooting, and contributing to IT projects that made campus services more efficient.</p>
           </div>
         </li>
       </ol>
@@ -440,6 +444,48 @@ footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
             <p class="dates">Feb to May 2025</p>
             <p>A book recommender you can search in plain language instead of just titles and authors, built on TF-IDF, Jaccard similarity and truncated SVD. Optimizing the ranking made queries 40% faster and recommendations 60% more relevant.</p>
             <ul class="tags"><li>Python</li><li>Flask</li><li>React</li><li>scikit-learn</li><li>Docker</li></ul>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="art">
+            <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="480" height="300" fill="#1F4D43"/>
+              <g fill="#CFE5C6" opacity=".22">
+                <g transform="translate(60 60) rotate(-20)"><ellipse cx="0" cy="8" rx="11" ry="9"/><circle cx="-10" cy="-6" r="4.5"/><circle cx="-3" cy="-11" r="4.5"/><circle cx="5" cy="-11" r="4.5"/><circle cx="12" cy="-6" r="4.5"/></g>
+                <g transform="translate(110 150) rotate(15)"><ellipse cx="0" cy="8" rx="11" ry="9"/><circle cx="-10" cy="-6" r="4.5"/><circle cx="-3" cy="-11" r="4.5"/><circle cx="5" cy="-11" r="4.5"/><circle cx="12" cy="-6" r="4.5"/></g>
+                <g transform="translate(60 245) rotate(-10)"><ellipse cx="0" cy="8" rx="11" ry="9"/><circle cx="-10" cy="-6" r="4.5"/><circle cx="-3" cy="-11" r="4.5"/><circle cx="5" cy="-11" r="4.5"/><circle cx="12" cy="-6" r="4.5"/></g>
+                <g transform="translate(410 70) rotate(25)"><ellipse cx="0" cy="8" rx="11" ry="9"/><circle cx="-10" cy="-6" r="4.5"/><circle cx="-3" cy="-11" r="4.5"/><circle cx="5" cy="-11" r="4.5"/><circle cx="12" cy="-6" r="4.5"/></g>
+                <g transform="translate(380 200) rotate(-15)"><ellipse cx="0" cy="8" rx="11" ry="9"/><circle cx="-10" cy="-6" r="4.5"/><circle cx="-3" cy="-11" r="4.5"/><circle cx="5" cy="-11" r="4.5"/><circle cx="12" cy="-6" r="4.5"/></g>
+              </g>
+              <rect x="180" y="22" width="130" height="260" rx="20" fill="#16241F"/>
+              <rect x="188" y="34" width="114" height="236" rx="12" fill="#F4FCEF"/>
+              <rect x="196" y="44" width="98" height="18" rx="9" fill="#FFFFFF" stroke="#CFE5C6"/>
+              <text x="206" y="57" font-family="Instrument Sans, Arial, sans-serif" font-size="9" font-weight="600" fill="#4E5E55">Cats · Young · Nearby ▾</text>
+              <g>
+                <rect x="196" y="70" width="98" height="92" rx="10" fill="#FFFFFF" stroke="#CFE5C6"/>
+                <rect x="202" y="76" width="86" height="56" rx="7" fill="#E1F4D8"/>
+                <path d="M226 124 l6-26 10 10 h12 l10-10 6 26 z" fill="#1F4D43"/>
+                <circle cx="240" cy="112" r="2.2" fill="#E1F4D8"/><circle cx="256" cy="112" r="2.2" fill="#E1F4D8"/>
+                <text x="203" y="147" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="11" font-weight="800" fill="#16241F">Mochi</text>
+                <text x="203" y="157" font-family="Instrument Sans, Arial, sans-serif" font-size="8" fill="#4E5E55">2 yrs · Tabby</text>
+              </g>
+              <g>
+                <rect x="196" y="170" width="98" height="92" rx="10" fill="#FFFFFF" stroke="#CFE5C6"/>
+                <rect x="202" y="176" width="86" height="56" rx="7" fill="#F3E6CC"/>
+                <path d="M226 224 l6-26 10 10 h12 l10-10 6 26 z" fill="#C98E1E"/>
+                <circle cx="240" cy="212" r="2.2" fill="#F3E6CC"/><circle cx="256" cy="212" r="2.2" fill="#F3E6CC"/>
+                <text x="203" y="247" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="11" font-weight="800" fill="#16241F">Biscuit</text>
+                <text x="203" y="257" font-family="Instrument Sans, Arial, sans-serif" font-size="8" fill="#4E5E55">1 yr · Orange</text>
+              </g>
+            </svg>
+            <div class="stat stat-right"><b>5</b><span>teammates, one Android app</span></div>
+          </div>
+          <div class="body">
+            <h3>Petfinder</h3>
+            <p class="dates">Team project, CodePath AND101</p>
+            <p>An Android app for finding adoptable pets, built with a five-person team. We scoped the idea through brainstorming and wireframes, split features across the team with target deadlines, and added filter spinners so users can narrow results, plus playful touches like paw-print borders.</p>
+            <ul class="tags"><li>Android</li><li>Kotlin</li><li>REST API</li><li>Team of 5</li></ul>
+            <a class="proj-link" href="https://www.youtube.com/watch?v=xNPV6_MTWdE" target="_blank" rel="noopener">Watch the demo video ↗</a>
           </div>
         </article>
       </div>
