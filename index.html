@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Benjamin Mukeku</title>
+<meta name="description" content="Benjamin Mukeku, software engineer working on backend systems, data pipelines and machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F4FCEF;
+  --paper-2: #E1F4D8;
+  --card: #FFFFFF;
+  --ink: #16241F;
+  --ink-soft: #4E5E55;
+  --forest: #1F4D43;
+  --ochre: #C98E1E;
+  --line: #CFE5C6;
+  --radius: 22px;
+  color-scheme: light;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 2px 0 var(--line); }
+
+/* Nav */
+nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 1rem; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.02em; }
+nav.top ul { list-style: none; display: flex; gap: clamp(0.9rem, 2.5vw, 1.8rem); margin: 0; padding: 0; overflow-x: auto; }
+nav.top ul a { text-decoration: none; font-size: 0.95rem; color: var(--ink-soft); white-space: nowrap; }
+nav.top ul a:hover { color: var(--forest); }
+
+.mark { white-space: nowrap; }
+.mark .short { display: none; }
+@media (max-width: 560px) { .mark .full { display: none; } .mark .short { display: inline; } nav.top ul { gap: 0.9rem; } }
+
+/* Hero */
+.hero { padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+@media (min-width: 820px) { .hero-grid { grid-template-columns: minmax(220px, 340px) 1fr; gap: clamp(2.5rem, 5vw, 4.5rem); } }
+.photo { width: 100%; max-width: 340px; aspect-ratio: 1 / 1; border-radius: 28% 28% 28% 6%; overflow: hidden; background: var(--forest); border: 6px solid var(--card); box-shadow: 0 0 0 1px var(--line); display: grid; place-items: center; }
+@media (max-width: 819px) { .photo { max-width: 220px; } }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo .initials { font-family: var(--display); font-weight: 800; font-size: clamp(4rem, 9vw, 6.5rem); color: var(--paper); letter-spacing: -0.04em; }
+.hero .hello { color: var(--ink-soft); margin: 0 0 0.75rem; font-size: 1.05rem; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 9vw, 6.75rem); line-height: 0.9; letter-spacing: -0.045em; margin: 0; }
+.hero h1 span { display: block; color: var(--forest); }
+.hero .lede { max-width: 34rem; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.5; margin: 1.75rem 0; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.15rem; border: 1.5px solid var(--ink); border-radius: 999px; text-decoration: none; font-weight: 500; font-size: 0.95rem; background: transparent; }
+.btn.solid { background: var(--forest); border-color: var(--forest); color: #fff; }
+.btn:hover { border-color: var(--forest); color: var(--forest); }
+.btn.solid:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.btn svg { width: 18px; height: 18px; }
+.stream { margin-top: clamp(2.5rem, 6vw, 4rem); height: 44px; overflow: hidden; }
+.stream svg { width: 100%; height: 100%; display: block; }
+.stream .track { stroke: var(--line); stroke-width: 1.5; }
+.stream .dot { fill: var(--forest); }
+.stream .dot.hot { fill: var(--ochre); }
+.stream-caption { font-size: 0.85rem; color: var(--ink-soft); margin: 0.4rem 0 0; }
+
+/* Section headings: left aligned, with a rule running to the edge */
+section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
+.block-head { display: flex; align-items: flex-end; gap: 1.25rem; margin-bottom: 2.5rem; }
+.block-head > div { flex: none; }
+.block-head::after { content: ""; flex: 1; height: 2px; background: var(--line); margin-bottom: 0.9rem; }
+.block-head .kicker { margin: 0 0 0.15rem; color: var(--ochre); font-size: 1rem; font-weight: 600; }
+.block-head h2 { font-family: var(--display); font-weight: 800; letter-spacing: -0.03em; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; margin: 0; color: var(--forest); }
+
+/* About + education */
+.about-intro { max-width: 46rem; margin: 0 0 2.5rem; font-size: 1.12rem; }
+.about-intro p { margin: 0 0 0.9rem; }
+.schools { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 820px) { .schools { grid-template-columns: 1fr 1fr; } }
+.school { display: grid; grid-template-columns: 96px 1fr; gap: 1.25rem; align-items: center; padding: 1.5rem; }
+.logo-slot { width: 96px; height: 96px; border-radius: 50%; background: var(--paper-2); border: 2px dashed var(--line); display: grid; place-items: center; overflow: hidden; font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--forest); }
+.logo-slot.has-img { border: 1px solid var(--line); background: #fff; }
+.logo-slot img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+.logo-slot.has-img span { display: none; }
+.school h3 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 0; letter-spacing: -0.01em; line-height: 1.2; }
+.school .deg { margin: 0.2rem 0 0; }
+.school .meta { color: var(--ink-soft); font-size: 0.92rem; margin: 0.15rem 0 0; }
+.coursework { max-width: 52rem; margin: 1.75rem 0 0; color: var(--ink-soft); font-size: 0.97rem; }
+.coursework strong { color: var(--ink); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 720px) { .skills { grid-template-columns: 1fr 1fr; } }
+.skill-box { padding: 1.6rem 1.75rem; }
+.skill-box h3 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0 0 1rem; color: var(--forest); }
+.skill-box ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem 1rem; }
+.skill-box li { display: flex; align-items: center; gap: 0.55rem; font-weight: 500; }
+.skill-box li::before { content: ""; flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--forest) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat; }
+
+/* Experience: timeline of boxes */
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 11px; top: 12px; bottom: 12px; width: 2px; background: var(--forest); opacity: 0.35; }
+.job { position: relative; padding-left: 3rem; margin-bottom: 1.5rem; }
+.job:last-child { margin-bottom: 0; }
+.job::before { content: ""; position: absolute; left: 2px; top: 1.6rem; width: 20px; height: 20px; border-radius: 50%; background: var(--card); border: 4px solid var(--forest); }
+.job.now::before { background: var(--ochre); border-color: var(--ochre); }
+.job .card { padding: 1.4rem 1.6rem; }
+.job .when { font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); margin: 0 0 0.4rem; }
+@media (min-width: 900px) {
+  .timeline::before { left: calc(12.5rem - 1px); }
+  .job { display: grid; grid-template-columns: 12.5rem 1fr; column-gap: 2rem; padding-left: 0; }
+  .job::before { left: calc(12.5rem - 10px); }
+  .job .when { grid-column: 1; grid-row: 1; text-align: right; padding: 1.45rem 1.75rem 0 0; margin: 0; }
+  .job .card { grid-column: 2; grid-row: 1; }
+}
+.job h3 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 0.2rem 0 0; letter-spacing: -0.015em; line-height: 1.25; color: var(--forest); }
+.job .org { margin: 0.1rem 0 0.7rem; font-weight: 600; }
+.job ul { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); }
+.job li { margin-bottom: 0.35rem; }
+.job li::marker { color: var(--ochre); }
+.badge { display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.55rem; border-radius: 999px; background: var(--ochre); color: #fff; font-size: 0.75rem; font-weight: 600; vertical-align: 2px; }
+
+.job-link { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--forest) 45%, transparent); }
+.job-link:hover { text-decoration-color: var(--ochre); color: var(--ink); }
+
+/* Projects: alternating feature rows, each with a visual */
+.projects { display: grid; gap: 1.75rem; }
+.project { display: grid; grid-template-columns: 1fr; overflow: hidden; }
+@media (min-width: 860px) {
+  .project { grid-template-columns: 1.05fr 1fr; }
+  .project:nth-child(even) .art { order: 2; }
+}
+.project .art { position: relative; background: var(--forest); min-height: 260px; overflow: hidden; }
+.project .art > svg, .project .art > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+.stat { position: absolute; left: 1.1rem; bottom: 1.1rem; background: var(--card); color: var(--ink); border-radius: 14px; padding: 0.55rem 0.9rem; box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.7rem; line-height: 1; letter-spacing: -0.03em; color: var(--forest); }
+.stat span { font-size: 0.8rem; color: var(--ink-soft); }
+.project .body { padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; justify-content: center; }
+.project h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.45rem, 2.5vw, 1.8rem); margin: 0; letter-spacing: -0.02em; line-height: 1.15; }
+.project .dates { color: var(--ink-soft); font-size: 0.9rem; margin: 0.3rem 0 0.9rem; }
+.project p { margin: 0 0 1.1rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0; }
+.tags li { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; background: var(--paper-2); color: var(--forest); }
+
+/* Communities: pill badges */
+.orgs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.85rem; }
+.org-item { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.45rem 1.2rem 0.45rem 0.45rem; border-radius: 999px; }
+.org-item .logo-slot { width: 48px; height: 48px; font-size: 0.85rem; border-width: 1.5px; margin: 0; }
+.org-item h3 { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 0; line-height: 1.2; }
+
+/* Contact */
+.contact-box { background: var(--forest); color: #fff; border-radius: calc(var(--radius) + 6px); padding: clamp(2.25rem, 6vw, 4rem); }
+.contact-box .kicker { margin: 0 0 0.3rem; opacity: 0.85; }
+.contact-box h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1; letter-spacing: -0.04em; margin: 0 0 1rem; }
+.contact-box p.lead { max-width: 32rem; margin: 0 0 1.75rem; font-size: 1.08rem; }
+.contact-box .btn { color: #fff; border-color: rgba(255,255,255,0.7); }
+.contact-box .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.contact-box .btn.solid { background: #fff; color: var(--forest); border-color: #fff; }
+
+footer { padding: 1rem 0 2.5rem; color: var(--ink-soft); font-size: 0.9rem; text-align: center; }
+footer ul { list-style: none; display: flex; justify-content: center; gap: 1.5rem; padding: 0; margin: 0 0 0.75rem; flex-wrap: wrap; }
+footer a { text-decoration: none; color: var(--forest); font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="full">Benjamin Mukeku</span><span class="short" aria-hidden="true">BM</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+      <div class="photo">
+        <!-- PROFILE PHOTO: replace the initials below with your photo, e.g.
+             <img src="your-photo.jpg" alt="Benjamin Mukeku"> -->
+        <img src="resources/ben.JPG" alt="Benjamin Mukeku" onerror="this.remove(); document.querySelector('.photo .initials').hidden=false;">
+        <span class="initials" aria-hidden="true" hidden>BM</span>
+      </div>
+      <div class="hero-text">
+      <p class="hello">Hi, I'm</p>
+      <h1>Benjamin <span>Mukeku</span></h1>
+      <p class="lede">I'm a software engineer who builds backend systems that move a lot of data reliably, and the machine learning that makes sense of it. Cornell CS grad, now doing my master's at Seattle University.</p>
+      <div class="links">
+        <a class="btn solid" href="mailto:karanjamukeku@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email me
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/benjamin-karanja" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.13v5.42h-4v-4.8c0-1.15-.02-2.62-1.6-2.62-1.6 0-1.85 1.25-1.85 2.54v4.88h-4v-11Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="https://github.com/Benja1958" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      </div>
+      </div>
+
+      <div class="stream" aria-hidden="true">
+        <svg viewBox="0 0 1000 44" id="streamSvg">
+          <line class="track" id="streamTrack" x1="0" y1="22" x2="1000" y2="22"/>
+        </svg>
+      </div>
+      <p class="stream-caption">At Meta I helped build a pipeline carrying 200M+ events a day. This line is a tiny tribute.</p>
+    </div>
+  </header>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="block-head"><div>
+        <p class="kicker">Get to know me</p>
+        <h2>About me</h2>
+        </div>
+      </div>
+      <div class="about-intro">
+        <p>I like the parts of software most people never see: the pipelines, APIs and payment flows that have to work every single time. Lately I've been building payment infrastructure for mobile money and co-founding a rental marketplace, while exploring machine learning through retrieval, recommendation and vision projects.</p>
+        <p>I also care about helping others get into tech, and have mentored more than 55 students along the way.</p>
+      </div>
+      <div class="schools">
+        <!-- LOGOS: to add a school logo, swap the letters inside .logo-slot for
+             <img src="logo.png" alt="Cornell University logo"> and add class "has-img" to the slot. -->
+        <div class="school card">
+          <div class="logo-slot has-img"><img src="resources/seattleu.svg" alt="Seattle University logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">SU</span></div>
+          <div>
+            <h3>Seattle University</h3>
+            <p class="deg">Master of Science in Computer Science</p>
+            <p class="meta">Seattle, WA. Expected June 2028</p>
+          </div>
+        </div>
+        <div class="school card">
+          <div class="logo-slot has-img"><img src="resources/cornell.png" alt="Cornell University logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">C</span></div>
+          <div>
+            <h3>Cornell University</h3>
+            <p class="deg">Bachelor of Arts in Computer Science</p>
+            <p class="meta">Ithaca, NY. May 2026</p>
+          </div>
+        </div>
+      </div>
+      <p class="coursework"><strong>Relevant coursework:</strong> Object-Oriented Programming &amp; Data Structures, Discrete Structures, Systems Programming, Analysis of Algorithms, AI Reasoning &amp; Decision-Making</p>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="block-head"><div>
+        <p class="kicker">What I work with</p>
+        <h2>Technical skills and tools</h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill-box card">
+          <h3>Languages</h3>
+          <ul><li>Python</li><li>Java</li><li>C++</li><li>TypeScript</li><li>JavaScript</li><li>Hack</li><li>SQL</li><li>OCaml</li><li>ARM64 Assembly</li></ul>
+        </div>
+        <div class="skill-box card">
+          <h3>Systems and databases</h3>
+          <ul><li>Distributed systems</li><li>REST APIs</li><li>PostgreSQL</li><li>Docker</li><li>Unix/Linux</li><li>FAISS</li></ul>
+        </div>
+        <div class="skill-box card">
+          <h3>AI and machine learning</h3>
+          <ul><li>PyTorch</li><li>scikit-learn</li><li>Vector search</li><li>Embeddings</li><li>Model evaluation</li></ul>
+        </div>
+        <div class="skill-box card">
+          <h3>Frameworks and tools</h3>
+          <ul><li>FastAPI</li><li>SQLAlchemy</li><li>Flask</li><li>Next.js</li><li>React</li><li>Git</li><li>Postman</li><li>Swagger/OpenAPI</li><li>Claude</li><li>GitHub Copilot</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="block-head"><div>
+        <p class="kicker">Where I've worked</p>
+        <h2>Experience</h2>
+        </div>
+      </div>
+      <ol class="timeline">
+        <li class="job now">
+          <p class="when">April 2026 to present <span class="badge">Current</span></p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Full-Stack Engineer, Co-founder</a></h3>
+            <p class="org">NyumbaLink</p>
+            <ul>
+              <li>Co-founded and built a rental marketplace connecting tenants and landlords as part of a three-person founding team.</li>
+              <li>Architected the backend with Python, FastAPI, PostgreSQL and SQLAlchemy, and built the frontend in Next.js, React and TypeScript.</li>
+              <li>Deployed APIs on Render and the frontend on Vercel, supporting listings, location-based search and in-app messaging.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">October 2025 to April 2026</p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Backend Software Engineer</a></h3>
+            <p class="org">Paysilo</p>
+            <ul>
+              <li>Secured mobile-money transactions with HMAC-SHA256 webhook verification and idempotent finalization, preventing duplicate credits.</li>
+              <li>Integrated NotchPay payment APIs end to end so users could top up XAF wallets seamlessly.</li>
+              <li>Fixed transaction-ID mapping errors by enforcing unique identifiers, keeping wallet balances accurate.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">May 2025 to August 2025</p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Software Engineering Intern</a></h3>
+            <p class="org">Meta</p>
+            <ul>
+              <li>Architected a distributed backend pipeline in Hack/PHP onboarding Meta In-App Browser signals, scaling to 200M+ events a day for downstream ranking.</li>
+              <li>Improved pipeline throughput by 25% by optimizing metadata enrichment, indexing and batching.</li>
+              <li>Shipped with zero on-call incidents thanks to automated validation, testing and ODS monitoring before rollout.</li>
+              <li>Worked with Ads infrastructure and ranking engineers to integrate the pipeline end to end, contributing a 0.4% lift toward the team's revenue target.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">May 2024 to February 2026</p>
+          <div class="card">
+            <h3><a class="job-link" href="https://www.linkedin.com/in/benjamin-karanja/details/experience/" target="_blank" rel="noopener">Technical Mentor</a></h3>
+            <p class="org">Zindua Tech Initiative</p>
+            <ul>
+              <li>Mentored 55+ students in Python and data structures across beginner and intermediate cohorts.</li>
+              <li>Designed coding labs on data structures, algorithmic thinking and writing clean, maintainable code.</li>
+              <li>Guided students through full projects, from scoping requirements to debugging, testing and final presentations.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="block-head"><div>
+        <p class="kicker">Things I've built</p>
+        <h2>Projects</h2>
+        </div>
+      </div>
+      <div class="projects">
+        <!-- PROJECT IMAGES: to use a real screenshot, replace the <svg>...</svg> inside .art with
+             <img src="your-image.png" alt="Short description of the screenshot">. The stat badge stays on top. -->
+        <article class="project card">
+          <div class="art">
+            <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="480" height="300" fill="#1F4D43"/>
+              <g font-family="Caveat, 'Comic Sans MS', cursive" font-size="44" fill="#CFE5C6" text-anchor="middle">
+                <text x="60" y="70" opacity=".55">7</text><text x="140" y="70" opacity=".55">a</text><text x="220" y="70" opacity=".55">2</text><text x="300" y="70" opacity=".55">K</text><text x="380" y="70" opacity=".55">9</text><text x="460" y="70" opacity=".55">e</text>
+                <text x="20" y="150" opacity=".55">4</text><text x="100" y="150" opacity=".55">R</text><text x="340" y="150" opacity=".55">5</text><text x="420" y="150" opacity=".55">m</text>
+                <text x="60" y="230" opacity=".55">h</text><text x="140" y="230" opacity=".55">0</text><text x="300" y="230" opacity=".55">3</text><text x="380" y="230" opacity=".55">T</text><text x="460" y="230" opacity=".55">6</text>
+              </g>
+              <rect x="170" y="92" width="130" height="130" rx="18" fill="none" stroke="#C98E1E" stroke-width="4"/>
+              <text x="235" y="192" text-anchor="middle" font-family="Caveat, cursive" font-size="104" fill="#FFFFFF">B</text>
+              <rect x="306" y="96" width="92" height="32" rx="16" fill="#C98E1E"/>
+              <text x="352" y="118" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="15" font-weight="600" fill="#16241F">B · 0.99</text>
+            </svg>
+            <div class="stat"><b>99.06%</b><span>MNIST test accuracy</span></div>
+          </div>
+          <div class="body">
+            <h3>Handwritten Character Recognition</h3>
+            <p class="dates">Feb to May 2026</p>
+            <p>A convolutional neural network in PyTorch, refined with data augmentation and hyperparameter tuning. I then extended it from 10 digits to 47 EMNIST characters, reaching 86.8% accuracy on a label space 4.7 times larger.</p>
+            <ul class="tags"><li>Python</li><li>PyTorch</li><li>MNIST</li><li>EMNIST</li></ul>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="art">
+            <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="480" height="300" fill="#1F4D43"/>
+              <g fill="#CFE5C6" opacity=".45">
+                <circle cx="40" cy="40" r="4"/><circle cx="95" cy="75" r="4"/><circle cx="60" cy="130" r="4"/><circle cx="130" cy="30" r="4"/><circle cx="30" cy="210" r="4"/><circle cx="110" cy="250" r="4"/><circle cx="175" cy="275" r="4"/><circle cx="330" cy="40" r="4"/><circle cx="400" cy="70" r="4"/><circle cx="450" cy="30" r="4"/><circle cx="440" cy="140" r="4"/><circle cx="455" cy="230" r="4"/><circle cx="390" cy="270" r="4"/><circle cx="300" cy="275" r="4"/><circle cx="250" cy="30" r="4"/><circle cx="70" cy="185" r="4"/><circle cx="360" cy="215" r="4"/><circle cx="405" cy="190" r="4"/><circle cx="160" cy="95" r="4"/>
+              </g>
+              <g stroke="#C98E1E" stroke-width="2.5" stroke-dasharray="5 6">
+                <line x1="240" y1="150" x2="190" y2="110"/><line x1="240" y1="150" x2="300" y2="120"/><line x1="240" y1="150" x2="215" y2="210"/>
+              </g>
+              <g fill="#FFFFFF"><circle cx="190" cy="110" r="9"/><circle cx="300" cy="120" r="9"/><circle cx="215" cy="210" r="9"/></g>
+              <circle cx="240" cy="150" r="42" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="2"/>
+              <circle cx="240" cy="150" r="80" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="2"/>
+              <path d="M240 134l4.7 9.6 10.6 1.5-7.7 7.5 1.8 10.5-9.4-5-9.4 5 1.8-10.5-7.7-7.5 10.6-1.5z" fill="#C98E1E"/>
+              <rect x="330" y="96" width="110" height="36" rx="10" fill="#FFFFFF" fill-opacity=".12" stroke="#FFFFFF" stroke-opacity=".5"/>
+              <text x="385" y="120" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">top-3 → LLM</text>
+            </svg>
+            <div class="stat"><b>10K</b><span>documents searched semantically</span></div>
+          </div>
+          <div class="body">
+            <h3>Retrieval-Augmented Generation</h3>
+            <p class="dates">Sep to Dec 2025</p>
+            <p>Semantic search over MS MARCO using BGE embeddings and FAISS, feeding the three most relevant passages into an LLM for grounded answers. I benchmarked exact versus approximate indexes to balance speed and recall, and compared TinyLlama, Llama 3.2 and Qwen2.</p>
+            <ul class="tags"><li>Python</li><li>FAISS</li><li>BGE embeddings</li><li>TinyLlama</li></ul>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="art">
+            <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="480" height="300" fill="#1F4D43"/>
+              <rect x="0" y="252" width="480" height="48" fill="#163A32"/>
+              <g>
+                <rect x="58" y="120" width="34" height="132" rx="4" fill="#CFE5C6" opacity=".55"/>
+                <rect x="96" y="96" width="42" height="156" rx="4" fill="#E1F4D8" opacity=".7"/>
+                <rect x="142" y="140" width="30" height="112" rx="4" fill="#CFE5C6" opacity=".45"/>
+                <rect x="176" y="64" width="48" height="188" rx="4" fill="#C98E1E"/>
+                <rect x="228" y="84" width="44" height="168" rx="4" fill="#FFFFFF"/>
+                <rect x="276" y="104" width="40" height="148" rx="4" fill="#E1F4D8"/>
+                <rect x="320" y="128" width="32" height="124" rx="4" fill="#CFE5C6" opacity=".55"/>
+                <rect x="356" y="110" width="38" height="142" rx="4" fill="#E1F4D8" opacity=".6"/>
+                <rect x="398" y="146" width="28" height="106" rx="4" fill="#CFE5C6" opacity=".4"/>
+              </g>
+              <g stroke="#16241F" stroke-opacity=".25" stroke-width="3"><line x1="186" y1="90" x2="214" y2="90"/><line x1="238" y1="110" x2="262" y2="110"/><line x1="286" y1="130" x2="306" y2="130"/></g>
+              <g font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="22" text-anchor="middle">
+                <circle cx="200" cy="40" r="18" fill="#FFFFFF"/><text x="200" y="48" fill="#1F4D43">1</text>
+                <circle cx="250" cy="58" r="15" fill="#FFFFFF" fill-opacity=".85"/><text x="250" y="65" font-size="18" fill="#1F4D43">2</text>
+                <circle cx="296" cy="78" r="13" fill="#FFFFFF" fill-opacity=".7"/><text x="296" y="84" font-size="15" fill="#1F4D43">3</text>
+              </g>
+            </svg>
+            <div class="stat"><b>300K+</b><span>books ranked</span></div>
+          </div>
+          <div class="body">
+            <h3>Rank n Read</h3>
+            <p class="dates">Feb to May 2025</p>
+            <p>A book recommender you can search in plain language instead of just titles and authors, built on TF-IDF, Jaccard similarity and truncated SVD. Optimizing the ranking made queries 40% faster and recommendations 60% more relevant.</p>
+            <ul class="tags"><li>Python</li><li>Flask</li><li>React</li><li>scikit-learn</li><li>Docker</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="communities">
+    <div class="wrap">
+      <div class="block-head"><div>
+        <p class="kicker">Groups I'm part of</p>
+        <h2>Communities</h2>
+        </div>
+      </div>
+      <ul class="orgs">
+        <li class="org-item card"><div class="logo-slot has-img"><img src="resources/colorstack.png" alt="ColorStack logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">CS</span></div><h3>ColorStack</h3></li>
+        <li class="org-item card"><div class="logo-slot has-img"><img src="resources/codepath.png" alt="CodePath logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">CP</span></div><h3>CodePath</h3></li>
+        <li class="org-item card"><div class="logo-slot has-img"><img src="resources/nsbe.png" alt="NSBE logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">NSBE</span></div><h3>National Society of Black Engineers</h3></li>
+        <li class="org-item card"><div class="logo-slot has-img"><img src="resources/amazon.png" alt="Amazon logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">A</span></div><h3>Amazon Campus Series</h3></li>
+        <li class="org-item card"><div class="logo-slot has-img"><img src="resources/zindua.png" alt="Zindua Tech Initiative logo" onerror="this.parentNode.classList.remove('has-img'); this.remove();"><span aria-hidden="true">Z</span></div><h3>Zindua Tech Initiative</h3></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <p class="kicker">Get in touch</p>
+        <h2>Contact me</h2>
+        <p class="lead">I'm open to software engineering roles and interesting projects. Email is the fastest way to reach me.</p>
+        <div class="links">
+          <a class="btn solid" href="mailto:karanjamukeku@gmail.com">karanjamukeku@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/benjamin-karanja" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/Benja1958" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    © 2026 Benjamin Mukeku
+  </div>
+</footer>
+
+<script>
+(function () {
+  var svg = document.getElementById('streamSvg');
+  if (!svg) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var W = 1000;
+  function size() {
+    W = Math.max(300, svg.clientWidth || 1000);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' 44');
+    document.getElementById('streamTrack').setAttribute('x2', W);
+  }
+  size();
+  window.addEventListener('resize', size);
+  var count = Math.round(W / 26);
+  var dots = [];
+  for (var i = 0; i < count; i++) {
+    var c = document.createElementNS(NS, 'circle');
+    var hot = Math.random() < 0.08;
+    c.setAttribute('class', 'dot' + (hot ? ' hot' : ''));
+    c.setAttribute('r', hot ? 4.5 : 3);
+    c.setAttribute('cy', 22 + (Math.random() * 14 - 7));
+    var x = Math.random() * W;
+    c.setAttribute('cx', x);
+    svg.appendChild(c);
+    dots.push({ el: c, x: x, v: 0.6 + Math.random() * 1.4 });
+  }
+  if (reduce) return;
+  function tick() {
+    for (var j = 0; j < dots.length; j++) {
+      var d = dots[j];
+      d.x += d.v;
+      if (d.x > W + 10) { d.x = -10; d.el.setAttribute('cy', 22 + (Math.random() * 14 - 7)); }
+      d.el.setAttribute('cx', d.x.toFixed(1));
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
